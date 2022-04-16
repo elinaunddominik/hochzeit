@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>Elina und Dominik heiraten!</title>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster:300,400,500,700&amp;display=swap" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700&amp;display=swap" type="text/css">
+    <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" />
+    <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap" />
+
+    <style>
+        /*Seitengrundgerüst*/
+        
+        body {
+            background-color: rgb(252, 200, 200);
+            font-family: "Open Sans";
+        }
+        /*Navigationsleiste*/
+        
+        nav ul {
+            width: border-box;
+            background-color: rgb(82, 80, 80);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        nav li {
+            list-style: none;
+            margin: 0.5em;
+            padding: 0;
+            font-size: 1.5em;
+            background-color: rgb(252, 200, 200);
+        }
+        
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+            color: rgb(82, 80, 80);
+            background-color: rgb(252, 200, 200);
+            display: block;
+            padding: 0.4em;
+            box-shadow: 0.5em 0.5em 0.5em black;
+            transition: all .25s ease-in;
+        }
+        
+        nav a:focus,
+        nav a:hover,
+        nav li[aria-current] a:focus nav li[aria-current] a:hover {
+            text-decoration: underline;
+            color: rgb(252, 200, 200);
+            background-color: rgb(82, 80, 80);
+        }
+        
+        @media (min-width: 45em) {
+            nav ul {
+                flex-direction: row;
+            }
+            nav li {
+                font-size: 1em;
+            }
+        }
+        
+        .index {
+            float: left;
+        }
+        
+        .navigation {
+            float: right;
+        }
+        /*Slideshow*/
+        
+        .gallery {
+            width: 20em;
+            height: 20em;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        @media (min-width: 45em) {
+            .gallery {
+                width: 45em;
+                height: 35em;
+            }
+        }
+        
+        @media (max-width: 60em) {
+            .gallery {
+                width: 60em;
+                height: 45em;
+            }
+        }
+        
+        .gallery figure {
+            position: absolute;
+            top: 1em;
+            left: 0em;
+            z-index: 1;
+            animation: wechseln 15s infinite;
+            animation-delay: 0s;
+        }
+        
+        .gallery figure:nth-of-type(2) {
+            animation-delay: 5s;
+        }
+        
+        .gallery figure:nth-of-type(3) {
+            animation-delay: 10s;
+        }
+        
+        .gallery img {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .gallery:hover figure {
+            animation-play-state: paused;
+        }
+        
+        @keyframes wechseln {
+            0% {
+                opacity: 1;
+            }
+            20% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 0;
+            }
+            60% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        /*Überschrift/Unterschrift*/
+        
+        .page-wrapper {
+            font-family: "Lobster";
+            text-align: center;
+            text-shadow: 0.2em 0.2em 0.2em white;
+            color: rgb(82, 80, 80);
+            font-size: 3em;
+            font-weight: lighter;
+        }
+        /*Text*/
+        
+        .text {
+            position: relative;
+            right: 1em;
+            top: -30em;
+            text-align: right;
+            text-shadow: 0.2em 0.2em 0.2em white;
+            color: rgb(82, 80, 80);
+            font-size: 1.5em;
+            font-weight: normal;
+            word-break: normal
+        }
+        
+        @media (max-width: 110em) {
+            .text {
+                position: relative;
+                right: 0.5em;
+                top: 5em;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--Navigationsleiste-->
+    <nav>
+        <ul class="index">
+            <li><a href="#index">Elina und Dominik</a></li>
+        </ul>
+        <ul class="navigation">
+            <li><a href="#Einladung">Einladung</a></li>
+            <li><a href="#Rückmeldung">Rückmeldung</a></li>
+            <li><a href="#Unterkünfte">Unterkünfte</a></li>
+            <li><a href="#Wünsche">Wünsche</a></li>
+            <li><a href="#Kontaktdaten">Kontaktdaten</a></li>
+            <li><a href="#Bilder">Bilder</a></li>
+        </ul>
+    </nav>
+
+    <!--Slideshow-->
+    <div class="gallery">
+        <figure>
+            <img src="1.jpg">
+        </figure>
+        <figure>
+            <img src="2.jpg">
+        </figure>
+        <figure>
+            <img src="3.jpg">
+        </figure>
+    </div>
+    <!--Überschrift-->
+    <section class="page-wrapper">
+        <div id="Überschrift">
+            <h1>Elina und Dominik heiraten!</h1>
+        </div>
+        <!--Unterschrift-->
+        <div id="Unterschrift">
+            <h2>Am 18. Juni 2022 ist es endlich soweit!</h2>
+        </div>
+    </section>
+    <!--Erklärung-->
+    <div class="text">
+        <p>Hier, auf dieser Website, könnt Ihr alle nötigen Informationen finden.</p>
+        <p>Klickt euch einfach durch</p>
+        <p>Nach der Hochzeit findet Ihr hier dann auch alle Bilder.</p>
+    </div>
+
+</body>
+
+</html>
