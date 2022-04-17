@@ -1,9 +1,24 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 
 <head>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        function SubForm() {
+            $.ajax({
+                url: "https://api.apispreadsheets.com/data/WXeH22IblDYjCntT/",
+                type: "post",
+                data: $("#Rückmeldung").serializeArray(),
+                success: function() {
+                    alert("Daten übermittelt :)")
+                },
+                error: function() {
+                    alert("Leider ist ein Fehler auifgetreten :(")
+                }
+            });
+        }
     </script>
 
     <meta charset="UTF-8" />
@@ -19,7 +34,7 @@
     <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" />
     <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap" />
 
-    <style>
+    <style type="text/css">
         /*Seitengrundgerüst*/
         
         body {
@@ -50,8 +65,8 @@
             background-color: rgb(252, 200, 200);
             display: block;
             padding: 0.4em;
-            box-shadow: 0.5em 0.5em 0.5em black;
-            transition: all .25s ease-in;
+            box-shadow: 10px 10px 10px black;
+            transition: all .25s ease in;
         }
         
         nav a:focus,
@@ -104,8 +119,8 @@
         
         .gallery figure {
             position: absolute;
-            top: 1em;
-            left: 0em;
+            top: 0;
+            left: 0;
             z-index: 1;
             animation: wechseln 15s infinite;
             animation-delay: 0s;
@@ -151,31 +166,44 @@
         .page-wrapper {
             font-family: "Lobster";
             text-align: center;
-            text-shadow: 0.2em 0.2em 0.2em white;
+            text-shadow: 10px 10px 10px white;
             color: rgb(82, 80, 80);
-            font-size: 3em;
+            font-size: 50px;
             font-weight: lighter;
         }
         /*Text*/
         
         .text {
-            position: relative;
-            right: 1em;
-            top: -30em;
-            text-align: right;
-            text-shadow: 0.2em 0.2em 0.2em white;
+            text-align: center;
+            text-shadow: 10px 10px 10px white;
             color: rgb(82, 80, 80);
-            font-size: 1.5em;
+            font-size: 26px;
             font-weight: normal;
             word-break: normal
         }
+        /*Rückmeldemaske*/
         
-        @media (max-width: 110em) {
-            .text {
-                position: relative;
-                right: 0.5em;
-                top: 5em;
-            }
+        form {
+            width: fit-content;
+            height: fit-content;
+            padding: 1em;
+            background-color: rgb(82, 80, 80);
+            margin: auto;
+            box-shadow: 10px 10px 10px black;
+            text-align: center;
+            color: rgb(252, 200, 200);
+        }
+        
+        input:invalid {
+            border: 0.2em dashed red;
+        }
+        
+        input:invalid:required {
+            background-image: transparent(red);
+        }
+        
+        input:valid {
+            border: 0.2em solid green;
         }
     </style>
 
@@ -190,42 +218,70 @@
         </ul>
         <ul class="navigation">
             <li><a href="./Einladung">Einladung</a></li>
-            <li><a href="./Rückmeldung">Rückmeldung</a></li>
-            <li><a href="./Unterkünfte">Unterkünfte</a></li>
-            <li><a href="./Wünsche">Wünsche</a></li>
-            <li><a href="./Kontaktdaten">Kontaktdaten</a></li>
-            <li><a href="./Bilder">Bilder</a></li>
+            <li><a href="#Rückmeldung">Rückmeldung</a></li>
+            <li><a href="#Unterkünfte">Unterkünfte</a></li>
+            <li><a href="#Wünsche">Wünsche</a></li>
+            <li><a href="#Kontaktdaten">Kontaktdaten</a></li>
+            <li><a href="#Bilder">Bilder</a></li>
         </ul>
     </nav>
 
-    <!--Slideshow-->
-    <div class="gallery">
-        <figure>
-            <img src="1.jpg">
-        </figure>
-        <figure>
-            <img src="2.jpg">
-        </figure>
-        <figure>
-            <img src="3.jpg">
-        </figure>
-    </div>
-    <!--Überschrift-->
     <section class="page-wrapper">
         <div id="Überschrift">
             <h1>Elina und Dominik heiraten!</h1>
         </div>
-        <!--Unterschrift-->
-        <div id="Unterschrift">
-            <h2>Am 18. Juni 2022 ist es endlich soweit!</h2>
-        </div>
+
     </section>
     <!--Erklärung-->
     <div class="text">
-        <p>Hier, auf dieser Website, könnt Ihr alle nötigen Informationen finden.</p>
-        <p>Klickt euch einfach durch</p>
-        <p>Nach der Hochzeit findet Ihr hier dann auch alle Bilder.</p>
+        <p>Damit wir alles entsprechend planen können, bitten wir euch um eine kurze Mitteilung!</p>
+        <p>Ihr könnt entweder die unten stehende Maske nutzen oder euch bei:</p>
+        <p>Elina's Trauzeugin Dana Tel.: 017684497618</p>
+        <p>oder bei Elina</p>
+        <p>Tel.: 017680507371 / E-Mail: elinanettelroth(at)gmail.com</p>
+        <p>direkt melden.</p>
     </div>
+
+    <!--Rückmeldemaske-->
+    <div class="Rückmeldemaske">
+        <form id="Rückmeldung">
+            <label for="Nachname">Nachname:</label>
+            <input type="text" id="Nachname" name="Nachname" required minlength="3">
+            <label>Vorname:</label>
+            <input type="text" name="Vorname" required minlength="3">
+            <label>E-Mail:</label>
+            <input type="email" name="E-mail" required>
+            <fieldset>
+                <legend>Bist du dabei?<abbr title="Verpflichtend" aria-label="required"></abbr> </legend>
+                <input type="radio" name="Teilnahme" required id="r1" value="Ja!"><label for="r1">Ja!</label>
+                <input type="radio" name="Teilnahme" required id="r2" value="Nein!"><label for="r2">Nein!</label>
+            </fieldset>
+            <p>Wie viele Gäste bringst du zusätzlich mit?</p>
+            <select name="Anzahl der Gäste">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <if>
+                <label>Nachname:</label>
+                <input name="Weitere Nachnamen" required>
+                <label>Vorname:</label>
+                <input name="Weitere Vornamen" required>
+            </if>
+            <br>
+            <br>
+            <br>
+            <label>Bemerkungen:</label>
+            <textarea name="Bemerkungen" cols="50" rows="5"></textarea>
+            <br>
+            <button onclick='SubForm()'>Submit</button>
+        </form>
+
+    </div>
+
 
 </body>
 
