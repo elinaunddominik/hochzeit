@@ -3,21 +3,18 @@
 
 <head>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
     </script>
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <title>Elina und Dominik heiraten!</title>
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster:300,400,500,700&amp;display=swap" type="text/css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700&amp;display=swap" type="text/css">
-    <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" />
-    <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap" />
+
 
     <style type="text/css">
         /*Seitengrundgerüst*/
@@ -78,74 +75,6 @@
         .navigation {
             float: right;
         }
-        /*Slideshow*/
-        
-        .gallery {
-            width: 20em;
-            height: 20em;
-            margin: 0 auto;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        @media (min-width: 45em) {
-            .gallery {
-                width: 45em;
-                height: 35em;
-            }
-        }
-        
-        @media (max-width: 60em) {
-            .gallery {
-                width: 60em;
-                height: 45em;
-            }
-        }
-        
-        .gallery figure {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            animation: wechseln 15s infinite;
-            animation-delay: 0s;
-        }
-        
-        .gallery figure:nth-of-type(2) {
-            animation-delay: 5s;
-        }
-        
-        .gallery figure:nth-of-type(3) {
-            animation-delay: 10s;
-        }
-        
-        .gallery img {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .gallery:hover figure {
-            animation-play-state: paused;
-        }
-        
-        @keyframes wechseln {
-            0% {
-                opacity: 1;
-            }
-            20% {
-                opacity: 0;
-            }
-            40% {
-                opacity: 0;
-            }
-            60% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
         /*Überschrift/Unterschrift*/
         
         .page-wrapper {
@@ -165,6 +94,16 @@
             font-size: 26px;
             font-weight: normal;
             word-break: normal
+        }
+        
+        .infos {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-around;
+        }
+        
+        .füller {
+            font-size: .9em;
         }
     </style>
 
@@ -187,24 +126,37 @@
         </ul>
     </nav>
 
-    <section class="page-wrapper">
+    <section class="page-wrapper" id="headline">
         <div id="Überschrift">
             <h1>Elina und Dominik heiraten!</h1>
         </div>
-
     </section>
-    <!--Erklärung-->
     <div class="text">
-        <p>Elina und Dominik werden sich am 18. Juni 2022 das Ja-Wort geben.</p>
-        <p>Das Ganze wird um 16 Uhr in der St.-Aegidius-Kirche zu Berne stattfinden</p>
-        <p>Anschließend wollen wir den Tag gemeinsam im Ankerplatz - Schöne Aussicht, Elsfleth - mit euch verbringen</p>
-        <p>Ihr seid herzlich eingeladen, diesen Tag mit uns zu verbringen. Wir freuen uns auf euch!</p>
+        <h2>Hier haben wir noch einmal ein paar Punkte für euch hinterlegt:</h2>
     </div>
+
+    <!--links-->
     <div class="infos">
-        <div class="pdf">
-            <a href="Hochzeit-Einlandung.pdf">Hier könnt ihr die Einladung noch einmal herunterladen.</a>
+        <div class="links">
+            <div class="text">
+                <h3>Einladungskarte:</h3>
+                <div class="füller">
+                    <a href="Hochzeit-Einlandung.pdf">Einmal zum Herunterladen, bitte!</a>
+                </div>
+            </div>
+        </div>
+
+        <!--rechts-->
+        <div class="rechts">
+            <div class="text">
+                <h3>Einen groben Zeitablauf:</h3>
+                <div class="füller">
+
+                </div>
+            </div>
         </div>
     </div>
+
 
 
 </body>
