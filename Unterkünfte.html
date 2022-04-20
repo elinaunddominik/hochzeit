@@ -11,33 +11,6 @@
 
 
     <script>
-        //Rückmeldemaske
-        function SubForm() {
-            $.ajax({
-                url: "https://api.apispreadsheets.com/data/WXeH22IblDYjCntT/",
-                type: "post",
-                data: $("#Rückmeldung").serializeArray(),
-                success: function() {
-                    alert("Daten übermittelt :)")
-                },
-                error: function() {
-                    alert("Leider ist ein Fehler auifgetreten :(")
-                }
-            });
-        }
-        //Dropdownmenü
-        $(document).ready(function() {
-            $("#gäste").change(function() {
-                // foo is the id of the other select box 
-                if ($(this).val() != "notinoz") {
-                    $("#gäste1").show();
-                } else {
-                    $("#foo").hide();
-                }
-            });
-        });
-
-
         //Countdowntimer
 
         (function() {
@@ -53,7 +26,7 @@
                 mm = String(today.getMonth() + 1).padStart(2, "0"),
                 yyyy = today.getFullYear(),
                 nextYear = yyyy + 1,
-                dayMonth = "05/18/",
+                dayMonth = "05/09/",
                 birthday = dayMonth + yyyy;
 
             today = mm + "/" + dd + "/" + yyyy;
@@ -75,7 +48,7 @@
 
                     //do something later when date is reached
                     if (distance < 0) {
-                        document.getElementById("headline").innerText = "It's my birthday!";
+                        document.getElementById("headline").innerText = "jetzt wieder normal buchen";
                         document.getElementById("countdown").style.display = "none";
                         document.getElementById("content").style.display = "block";
                         clearInterval(x);
@@ -178,42 +151,6 @@
             font-weight: normal;
             word-break: normal
         }
-        /*Rückmeldemaske*/
-        
-        form {
-            width: fit-content;
-            height: fit-content;
-            padding: 1em;
-            background-color: rgb(82, 80, 80);
-            margin: auto;
-            box-shadow: 10px 10px 10px black;
-            text-align: center;
-            color: rgb(252, 200, 200);
-            width: 70em;
-        }
-        
-        input:invalid {
-            border: 0.2em dashed red;
-        }
-        
-        input:invalid:required {
-            background-image: transparent(red);
-        }
-        
-        input:valid {
-            border: 0.2em solid green;
-        }
-        
-        .deadline {
-            font-size: 1.5em;
-            text-shadow: 10px 10px 10px black;
-            font-weight: bold;
-            font-style: italic;
-        }
-        
-        .dropdownmenu {
-            color: brown;
-        }
         /*Countdowntimer*/
         
         .container {
@@ -222,7 +159,7 @@
             box-shadow: 10px 10px 10px black;
             text-align: center;
             box-sizing: fit-content;
-            width: 70em;
+            width: 15em;
             color: rgb(255, 200, 200);
             margin: 0 auto;
             text-transform: uppercase;
@@ -230,21 +167,21 @@
         
         h2 {
             font-weight: normal;
-            letter-spacing: .125rem;
+            letter-spacing: .1rem;
             text-transform: uppercase;
         }
         
         li.a {
             display: inline-block;
-            font-size: 1.5em;
+            font-size: .9em;
             list-style-type: none;
-            padding: 1em;
+            padding: .5em;
             text-transform: uppercase;
         }
         
         li span {
             display: block;
-            font-size: 4.5rem;
+            font-size: 1rem;
         }
         
         @media all and (max-width: 768px) {
@@ -257,6 +194,11 @@
             li span {
                 font-size: calc(3.375rem * var(--smaller));
             }
+        }
+        
+        hr {
+            border-color: grey;
+            border-width: 1em;
         }
     </style>
 
@@ -287,83 +229,72 @@
     </section>
     <!--Erklärung-->
     <div class="text">
-        <p>Damit wir alles entsprechend planen können, bitten wir euch um eine kurze Mitteilung!</p>
-        <p>Ihr könnt entweder die unten stehende Maske nutzen oder euch bei:</p>
-        <p>Elina's Trauzeugin Dana Tel.: 017684497618</p>
-        <p>oder bei Elina</p>
-        <p>Tel.: 017680507371 / E-Mail: elinanettelroth(at)gmail.com</p>
-        <p>direkt melden.</p>
+        <p>Damit Ihr auch entsprechend den Tag mit uns verbringen könnt, will vielleicht der ein oder andere in der Nähe übernachten.</p>
+        <p>Wir haben ein paar Unterkünfte für euch rausgesucht. Niemand ist gezwungen die genannten Unterkünfte zu nutzen.</p>
+        <p>Gerne könnt ihr euch selber nach einer Unterkunft umschauen.</p>
+        <p>Teilt uns bitte mit, wo ihr untergekommen seid. Das brauchen wir für unsere Planung.</p>
     </div>
-
-
-    <br>
-
-    <!--Rückmeldemaske-->
-    <div class="Rückmeldemaske">
-        <form id="Rückmeldung">
-            <div class="deadline">
-                <p>Bitte gebt uns bis zum 18.05.2022 Bescheid, ob ihr teilnehmen wollt, oder nicht!</p>
+    <hr>
+    <!--Unterkünfte-->
+    <div class="unterkünfte">
+        <div class="altemühle">
+            <div class="unterkunfttext">
+                <h2>Hotel Alte Mühle</h2>
+                <p>Im Hotel Alte Mühle in Elsfleth sind für das Wochenende um den Hochzeitstermin 7 Doppelzimmer verfügbar. </p>
+                <p>Das Doppelzimmer kostet 109€ inkl. Frühstück.</p>
             </div>
-            <label for="Nachname">Nachname:</label>
-            <input type="text" id="Nachname" name="Nachname" required minlength="3">
-            <label>Vorname:</label>
-            <input type="text" name="Vorname" required minlength="3">
-            <label>E-Mail:</label>
-            <input type="email" name="E-mail" required>
-            <fieldset>
-                <legend>Bist du dabei?<abbr title="Verpflichtend" aria-label="required"></abbr> </legend>
-                <input type="radio" name="Teilnahme" required id="r1" value="Ja!"><label for="r1">Ja!</label>
-                <input type="radio" name="Teilnahme" required id="r2" value="Nein!"><label for="r2">Nein!</label>
-            </fieldset>
-            <p>Wie viele Gäste bringst du zusätzlich mit? Die Namen bitte bei Bemerkungen eintragen.</p>
-            <div class="dropdownmenu">
-                <select name="Anzahl der Gäste" id="gäste">
-                    <option value="0" selected>0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+            <div class="unterkunftbild">
+                <a href="http://www.alte-muehle-elsfleth.de/index.html"><img src="http://www.alte-muehle-elsfleth.de/images/slideshow5_muehle.jpg" alt="Bild-Link"></a>
             </div>
-            <!--
-            <div class="gäste1" id="gäste1">
-                <label>Nachname:</label>
-                <input name="Weitere Nachnamen" aria-required>
-                <label>Vorname:</label>
-                <input name="Weitere Vornamen" required>
+            <div class="unterkunftlink">
+                <a href="http://www.alte-muehle-elsfleth.de/index.html" target="_blank">Hier gehts zum Hotel</a>
             </div>
-            <div class="gäste2" id="gäste2">
-                <label>Nachname:</label>
-                <input name="Weitere Nachnamen" required>
-                <label>Vorname:</label>
-                <input name="Weitere Vornamen" required>
+        </div>
+        <hr>
+        <div class="landhotel">
+            <div class="unterkunfttext">
+                <h2>Cafe Landhotel</h2>
+                <p>Im Cafe Landhotel in Brake sind für das Wochenende um den Hochzeitstermin 4 Doppelzimmer verfügbar. </p>
+                <p>Zwei Doppelzimmer mit Doppelbett und 2 Doppelzimmer mit getrennten Betten </p>
+                <p>Das Doppelzimmer kostet 111€ inkl. Frühstück.</p>
+                <p>Die Rückmeldung für auf "Esser" geblockte Zimmer muss bis zum 09.05.2022 erfolgen. Ansonsten gehen die Zimmer wieder in den normalen Kreislauf zurück.</p>
             </div>
-        -->
-            <br>
-            <br>
-            <label>Bemerkungen:</label>
-            <textarea name="Bemerkungen" cols="50" rows="5"></textarea>
-            <br>
-            <button onclick='SubForm()'>Submit</button>
-        </form>
+            <div class="unterkunftuhr">
+                <!--Countdowntimer-->
+                <div class="container">
+                    <div id="countdown" class="countdown">
+                        <ul class="a">
+                            <li class="a"><span id="days"></span>Tage</li>
+                            <li class="a"><span id="hours"></span>Stunden</li>
+                            <li class="a"><span id="minutes"></span>Minuten</li>
+                            <li class="a"><span id="seconds"></span>Sekunden</li>
+                        </ul>
+                    </div>
+                </div>
 
-    </div>
-
-    <br>
-    <br>
-    <!--Countdowntimer-->
-    <div class="container">
-        <div id="countdown" class="countdown">
-            <ul class="a">
-                <li class="a"><span id="days"></span>Tage</li>
-                <li class="a"><span id="hours"></span>Stunden</li>
-                <li class="a"><span id="minutes"></span>Minuten</li>
-                <li class="a"><span id="seconds"></span>Sekunden</li>
-            </ul>
-            <h1>So lange habt Ihr noch Zeit.</h1>
+            </div>
+            <div class="unterkunftbild">
+                <a href="http://www.alte-muehle-elsfleth.de/index.html"><img src="http://www.alte-muehle-elsfleth.de/images/slideshow5_muehle.jpg" alt="Bild-Link"></a>
+            </div>
+            <div class="unterkunftlink">
+                <a href="http://www.alte-muehle-elsfleth.de/index.html" target="_blank">Hier gehts zum Hotel</a>
+            </div>
         </div>
     </div>
+    <hr>
+    <!--Rückmeldemaske-->
+    <div class="Rückmeldemaske">
+
+        <label>Unterkunft:</label>
+        <textarea name="Unterkunft" cols="50" rows="5"></textarea>
+        <br>
+        <button onclick='SubForm()'>Submit</button>
+
+
+    </div>
+
+    <br>
+    <br>
 
 
 </body>
