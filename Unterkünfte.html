@@ -4,12 +4,6 @@
 <head>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="https://www.jqueryscript.net/demo/Modern-Circular-jQuery-Countdown-Timer-Plugin-Final-Countdown/js/kinetic.js"></script>
-    <script type="text/javascript" src="https://www.jqueryscript.net/demo/Modern-Circular-jQuery-Countdown-Timer-Plugin-Final-Countdown/jquery.final-countdown.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-
-
     <script>
         //Rückmeldemaske
         function SubForm() {
@@ -18,14 +12,13 @@
                 type: "post",
                 data: $("#Unterkunft").serializeArray(),
                 success: function() {
-                    alert("Daten übermittelt :)")
+                    alert("Daten übertragen :)")
                 },
                 error: function() {
-                    alert("Leider ist ein Fehler auifgetreten :(")
+                    alert("Leider ist ein Fehler aufgetreten :(")
                 }
             });
         }
-
         //Countdowntimer
 
         (function() {
